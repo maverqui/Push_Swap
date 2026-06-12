@@ -6,21 +6,31 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 17:53:26 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/05/25 18:06:33 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/12 14:27:12 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//1 || 0
+static	int is_space(char c)
+{
+	return (c == ' ' || c == '\f' || c == '\n' || c == '\r'
+		|| c == '\t' || c == '\v');
+}
+
 int	ft_atoi(char *str)
 {
-	long	i;
-	int	sign;
+	int	i;
 	int	res;
+	int	sign;
 
 	i = 0;
+	res = 0;
 	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i] && is_space(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign *= -1;
@@ -31,5 +41,6 @@ int	ft_atoi(char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	return (res * sign);	
+	return (sign * res);
 }
+

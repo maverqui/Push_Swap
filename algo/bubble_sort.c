@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/25 13:59:55 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/06 18:15:56 by maeverqu         ###   ########.fr       */
+/*   Created: 2026/05/29 13:31:50 by maeverqu          #+#    #+#             */
+/*   Updated: 2026/06/12 15:45:47 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int main(int argc, char **argv)
+void	ft_bubble_sort(t_list **stack_a)
 {
-	int	i;
 	
-	i = 1;
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	while (argv[i])
-	{
-		if(!is_valid_arg(argv[i]))
-			clean_exit();
-		i++;
-	}
-	write(STDOUT_FILENO, "caca\n", 5);
-	return (EXIT_SUCCESS);
 }
