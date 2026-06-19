@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/12 15:26:45 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/18 17:43:04 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,21 @@ void	rra(t_list **lst_a);
 void	rrb(t_list **lst_b);
 void	rrr(t_list **lst_a, t_list **lst_b);
 
+//---ALGO---
+void	ft_bubble_sort(t_list **stack_a);
+
 //---PARSING---
 int		is_valid_arg(char *arg);
 void	clean_exit();
 
 //---UTILS---
-int		ft_atoi(char *str);
+long	ft_atoi(char *str);
 
 //---UTILS2---
 t_list	*ft_lstnew(int val);
 void	ft_lstadd_back(t_list **lst, t_list *new_node);
 t_list	*ft_lstlast(t_list	*lst);
 int		ft_lstsize(t_list *lst);
+void	ft_lstclear(t_list **lst);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 17:50:16 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/11 11:29:55 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/18 17:41:50 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,21 @@ int	ft_lstsize(t_list *lst)
 		len++;
 	}
 	return (len);
+}
+
+void	ft_lstclear(t_list **lst)
+{
+	t_list	*current;
+	t_list	*next_node;
+
+	if (!lst || !(*lst))
+		return ;
+	current = *lst;
+	while (current)
+	{
+		next_node = current->next;
+		free(current);
+		current = next_node;
+	}
+	*lst = NULL;
 }

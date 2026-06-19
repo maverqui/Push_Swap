@@ -24,9 +24,7 @@ static void	ft_rev_rotate(t_list **lst)
 	current = *lst;
 	first = *lst;
 	while (current->next->next)
-	{
 		current = current->next;
-	}
 	temp->next = first;
 	*lst = temp;
 	current->next = NULL;
