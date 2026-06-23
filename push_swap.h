@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/18 17:43:04 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/23 15:41:32 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	ft_bubble_sort(t_list **stack_a);
 
 //---PARSING---
 int		is_valid_arg(char *arg);
-void	clean_exit();
+void	clean_exit(t_list **lst_a);
 
 //---UTILS---
-long	ft_atoi(char *str);
+long	ft_atol(char *str);
 
 //---UTILS2---
 t_list	*ft_lstnew(int val);
@@ -55,5 +55,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new_node);
 t_list	*ft_lstlast(t_list	*lst);
 int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
+//--------------------------------------------------------
+float	compute_disorder(t_list **lst_a);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:14:49 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/18 18:17:21 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/23 15:30:51 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	isnt_double(int num, t_list *stack)
 	return (1);
 }
 
-static int	is_valid_arg(char *arg)
+int	is_valid_arg(char *arg)
 {
 	int	i;
 
@@ -67,7 +67,7 @@ void	init_stack(t_list **lst_a, int argc, char **argv)
         value = ft_atol(argv[i]);
 		if (value > 2147483647 || value < -2147483648)
 			clean_exit(lst_a);
-        if (!isnt_double((int)value, lst_a))
+        if (!isnt_double((int)value, *lst_a))
 			clean_exit(lst_a);
         new_node = ft_lstnew((int)value);
         if (!new_node)
