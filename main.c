@@ -6,18 +6,11 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:59:55 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/05/25 17:50:19 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/23 12:36:31 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
-
-void clean_exit()
-{
-	write(STDERR_FILENO, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
 
 int main(int argc, char **argv)
 {
@@ -29,7 +22,7 @@ int main(int argc, char **argv)
 	while (argv[i])
 	{
 		if(!is_valid_arg(argv[i]))
-			clean_exit();
+			clean_exit(argv);
 		i++;
 	}
 	write(STDOUT_FILENO, "caca\n", 5);

@@ -1,46 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 16:19:26 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/12 15:26:32 by maeverqu         ###   ########.fr       */
+/*   Created: 2026/06/11 16:41:38 by maeverqu          #+#    #+#             */
+/*   Updated: 2026/06/12 14:08:22 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	ft_rotate(t_list **lst)
+static void	ft_rev_rotate(t_list **lst)
 {
 	t_list	*temp;
-	t_list	*last;
+	t_list	*first;
+	t_list	*current;
 
 	if (!(*lst) || !lst || (*lst)->next == NULL)
 		return ;
-	last = ft_lstlast(*lst);
-	temp = *lst;
-	*lst = (*lst)->next;
-	last->next = temp;
-	temp->next = NULL;
+	temp = ft_lstlast(*lst);
+	current = *lst;
+	first = *lst;
+	while (current->next->next)
+		current = current->next;
+	temp->next = first;
+	*lst = temp;
+	current->next = NULL;
 }
 
-void	ra(t_list **lst_a)
+void	rra(t_list **lst_a)
 {
-	ft_rotate(lst_a);
-	write(1, "ra\n", 3);
+	ft_rev_rotate(lst_a);
+	write(1, "rra\n", 4);
 }
 
-void	rb(t_list **lst_b)
+void	rrb(t_list **lst_b)
 {
-	ft_rotate(lst_b);
-	write(1, "rb\n", 3);
+	ft_rev_rotate(lst_b);
+	write(1, "rrb\n", 4);
 }
 
-void	rr(t_list **lst_a, t_list **lst_b)
+void	rrr(t_list **lst_a, t_list **lst_b)
 {
-	ft_rotate(lst_a);
-	ft_rotate(lst_b);
-	write(1, "rr\n", 3);
+	ft_rev_rotate(lst_a);
+	ft_rev_rotate(lst_b);
+	write(1, "rrr\n", 4);
 }

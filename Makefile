@@ -6,22 +6,25 @@
 #    By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/25 12:13:18 by maeverqu          #+#    #+#              #
-#    Updated: 2026/05/25 13:04:30 by maeverqu         ###   ########.fr        #
+#    Updated: 2026/06/10 17:37:06 by maeverqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap.a
+NAME	= push_swap
 
-cc		= cc
+CC		= cc
 
 CFLAGS	= -Wall -Werror -Wextra
+
+SRCS	= parsing/is_valid.c utils.c main.c
+		 
 
 OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
