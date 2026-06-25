@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 17:50:16 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/18 17:41:50 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:27:05 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 t_list	*ft_lstnew(int val)
 {

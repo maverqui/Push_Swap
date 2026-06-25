@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/25 13:59:55 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/23 12:36:31 by maeverqu         ###   ########.fr       */
+/*   Created: 2026/06/25 15:42:14 by maeverqu          #+#    #+#             */
+/*   Updated: 2026/06/25 18:35:03 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-int main(int argc, char **argv)
+static	void	ft_index(t_list **lst)
 {
-	int	i;
-	
-	i = 1;
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	while (argv[i])
+	t_list *actual;
+	t_list *to_compare;
+
+	actual = *lst;
+	while(actual)
 	{
-		if(!is_valid_arg(argv[i]))
-			clean_exit(argv);
-		i++;
+		actual->index = 0;
+		to_compare = *lst;
+		while(to_compare)
+		{
+			if (actual->value > to_compare->value)
+				actual->index++;
+			to_compare = to_compare->next;
+		}
+		actual = actual->next;
 	}
-	write(STDOUT_FILENO, "caca\n", 5);
-	return (EXIT_SUCCESS);
 }
+

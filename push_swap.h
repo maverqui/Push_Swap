@@ -6,7 +6,7 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/25 16:37:28 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:14:31 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_chunk_sort(t_list **lst_a, t_operations *operations);
 //---PARSING---
 int		is_valid_arg(char *arg);
 void	clean_exit(t_list **lst_a);
+void	init_stack(t_list **lst_a, int argc, char **argv);
 
 //---UTILS---
 long	ft_atol(char *str);
@@ -74,5 +75,6 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
 //--------------------------------------------------------
 float	compute_disorder(t_list **lst_a);
+
 
 #endif

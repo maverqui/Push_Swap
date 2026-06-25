@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 17:53:26 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/18 18:06:27 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:27:07 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 static	int is_space(char c)
 {
