@@ -6,7 +6,7 @@
 #    By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/25 12:13:18 by maeverqu          #+#    #+#              #
-#    Updated: 2026/06/10 17:37:06 by maeverqu         ###   ########.fr        #
+#    Updated: 2026/06/25 18:42:58 by maeverqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,18 @@ CC		= cc
 
 CFLAGS	= -Wall -Werror -Wextra
 
-SRCS	= parsing/is_valid.c utils.c main.c
+SRCS	= srcs/core/compute_disorder.c \
+		  srcs/core/main.c \
+		  srcs/parsing/is_valid.c \
+		  srcs/utils/utils.c \
+		  srcs/utils/utils2.c \
+		  srcs/algo/bubble_sort.c \
+		  srcs/algo/chunk_sort.c \
+		  srcs/operations/push.c \
+		  srcs/operations/reverse_rotate.c \
+		  srcs/operations/rotate.c \
+		  srcs/operations/swap.c
 		 
-
 OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)

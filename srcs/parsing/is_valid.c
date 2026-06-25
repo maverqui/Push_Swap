@@ -6,11 +6,11 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:14:49 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/23 15:30:51 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:26:02 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void clean_exit(t_list **lst_a)
 {

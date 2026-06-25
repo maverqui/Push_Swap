@@ -6,11 +6,11 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:41:38 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/25 16:34:30 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:25:43 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 static void	ft_rev_rotate(t_list **lst)
 {

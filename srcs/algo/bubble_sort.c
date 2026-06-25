@@ -6,11 +6,12 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 13:31:50 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/25 16:37:14 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:55:09 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
+#include <stdio.h>
 
 int	check_if_sort(t_list *lst)
 {
@@ -31,9 +32,9 @@ void	ft_bubble_sort(t_list **lst_a, t_operations *operations)
 	int		i;
 	
 	size = ft_lstsize(*lst_a);
-	i = 0;
 	while (!(check_if_sort(*lst_a)))
 	{
+		i = 0;
 		while (i < size - 1)
 		{	
 			if ((*lst_a)->value > (*lst_a)->next->value)
