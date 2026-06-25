@@ -3,34 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 13:31:50 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/17 20:41:34 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 16:37:14 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_bubble_sort(t_list **stack_a)
+int	check_if_sort(t_list *lst)
+{
+	if (!lst)
+		return (1);
+	while (lst->next)
+	{
+		if (lst->value > lst->next->value)
+			return (0);
+		lst = lst->next;
+	}
+	return(1);
+}
+
+void	ft_bubble_sort(t_list **lst_a, t_operations *operations)
 {
 	int		size;
-	int		i; // relance la boucle j
-	int		j; // range + grand nb
+	int		i;
 	
-	size = ft_lstsize(*stack_a);
+	size = ft_lstsize(*lst_a);
 	i = 0;
-	while (i < size - 1)
+	while (!(check_if_sort(*lst_a)))
 	{
-		j = 0;
-		while (j < size - 1)
+		while (i < size - 1)
 		{	
-			if ((*stack_a)->value > (*stack_a)->next->value)
-				sa(stack_a);
-			ra(stack_a);
-			j++;
+			if ((*lst_a)->value > (*lst_a)->next->value)
+				sa(lst_a, operations);
+			ra(lst_a, operations);
+			i++;
 		}
-		ra(stack_a);
-		i++;
+		ra(lst_a, operations);
 	}
 }

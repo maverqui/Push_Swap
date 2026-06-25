@@ -6,7 +6,7 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/23 15:41:32 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/25 16:37:28 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,45 @@
 typedef struct s_list
 {
 	int				value;
+	int				index;
 	struct	s_list	*next;
-	struct	s_list	*prev;
 }	t_list;
 
+typedef struct s_operations
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	pa;
+	int	pb;
+	int	rra;
+	int	rrb;
+	int	rrr;
+} t_operations;
+
 //---OPERATIONS---
-void	sa(t_list **lst_a);
-void	sb(t_list **lst_b);
-void	ss(t_list **lst_a, t_list **lst_b);
+void	sa(t_list **lst_a, t_operations *operations);
+void	sb(t_list **lst_b, t_operations *operations);
+void	ss(t_list **lst_a, t_list **lst_b, t_operations *operations);
 //-------------------------------------------------------
-void	pa(t_list **lst_a, t_list **lst_b);
-void	pb(t_list **lst_a, t_list **lst_b);
+void	pa(t_list **lst_a, t_list **lst_b, t_operations *operations);
+void	pb(t_list **lst_a, t_list **lst_b, t_operations *operations);
 //-------------------------------------------------------
-void	ra(t_list **lst_a);
-void	rb(t_list **lst_b);
-void	rr(t_list **lst_a, t_list **lst_b);
+void	ra(t_list **lst_a, t_operations *operations);
+void	rb(t_list **lst_b, t_operations *operations);
+void	rr(t_list **lst_a, t_list **lst_b, t_operations *operations);
 //-------------------------------------------------------
-void	rra(t_list **lst_a);
-void	rrb(t_list **lst_b);
-void	rrr(t_list **lst_a, t_list **lst_b);
+void	rra(t_list **lst_a, t_operations *operations);
+void	rrb(t_list **lst_b, t_operations *operations);
+void	rrr(t_list **lst_a, t_list **lst_b, t_operations *operations);
 
 //---ALGO---
-void	ft_bubble_sort(t_list **stack_a);
+void	ft_bubble_sort(t_list **lst_a, t_operations *operations);
+//---------------------------------------------------------
+void	ft_chunk_sort(t_list **lst_a, t_operations *operations);
 
 //---PARSING---
 int		is_valid_arg(char *arg);
