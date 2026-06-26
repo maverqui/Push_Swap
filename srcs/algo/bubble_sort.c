@@ -6,12 +6,11 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 13:31:50 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/25 18:55:09 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/26 15:50:55 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-#include <stdio.h>
 
 int	check_if_sort(t_list *lst)
 {
