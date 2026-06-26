@@ -6,7 +6,7 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/25 17:14:31 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/26 18:25:48 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	rrr(t_list **lst_a, t_list **lst_b, t_operations *operations);
 void	ft_bubble_sort(t_list **lst_a, t_operations *operations);
 //---------------------------------------------------------
 void	ft_chunk_sort(t_list **lst_a, t_operations *operations);
+//---------------------------------------------------------
+void	ft_radix_sort(t_list **lst_a, t_list **lst_b, t_operations *operations);
+void	ft_index(t_list **lst);
 
 //---PARSING---
 int		is_valid_arg(char *arg);

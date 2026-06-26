@@ -6,7 +6,7 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:13:56 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/25 18:43:10 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/26 18:26:10 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ float	compute_disorder(t_list **lst_a)
 	return ((float)mistakes / (float)total_pairs);
 }
 
-void	adaptive_algo(t_list **lst_a, t_operations *operations)
+void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations)
 {
 	float	disorder;
 
@@ -52,7 +52,7 @@ void	adaptive_algo(t_list **lst_a, t_operations *operations)
 		ft_bubble_sort(lst_a, operations);
 	else if (disorder <= 0.2 && disorder < 0.5)
 		ft_chunk_sort(lst_a, operations);
-	//else if (disorder >= 0.5)
-	//	ft_radix_sort(ect);
+	else if (disorder >= 0.5)
+		ft_radix_sort(lst_a, lst_b, operations);
 	return ;
 }
