@@ -27,22 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
-{
-	// size_t n et size_t i change en int n, i
-	int	i;
 
-	i = 0;
-	while (i < n)
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		if (s1[i] == '\0')
-			return (0);
-		i++;
-	}
-	return (0);
-}
 
 void	b_strategy(char *str)
 {

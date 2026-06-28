@@ -6,7 +6,7 @@
 /*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/28 18:40:19 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/28 20:33:10 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	init_stack(t_list **lst_a, int argc, char **argv);
 
 //---UTILS---
 long	ft_atol(char *str);
+int	ft_strcmp(const char *s1, const char *s2);
 
 //---UTILS2---
 t_list	*ft_lstnew(int val);
@@ -79,4 +80,6 @@ void	ft_lstclear(t_list **lst);
 //--------------------------------------------------------
 float	compute_disorder(t_list **lst_a);
 void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations);
+void	force_algo(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s);
+
 #endif

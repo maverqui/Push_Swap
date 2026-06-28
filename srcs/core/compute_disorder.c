@@ -6,7 +6,7 @@
 /*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:13:56 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/28 18:53:16 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/28 20:39:06 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,28 @@ void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations)
 	else if (disorder >= 0.5)
 		ft_radix_sort(lst_a, lst_b, operations);
 	return ;
+}
+void	force_algo(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == '-')
+		{
+			// if (strcmp(s, "--bench") == 0)
+			// 	???????????
+			if (ft_strcmp(s, "--simple") == 0)
+				ft_bubble_sort(lst_a, operations);
+			if (ft_strcmp(s, "--medium") == 0)
+				ft_chunk_sort(lst_a, operations);
+			if (ft_strcmp(s, "--complex") == 0)
+				ft_radix_sort(lst_a, lst_b, operations);
+			if (ft_strcmp(s, "--adaptive") == 0)
+				adaptive_algo(lst_a, lst_b, operations);
+		}
+		i++;
+	}	
+	adaptive_algo(lst_a, lst_b, operations);
 }
