@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+         #
+#    By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/25 12:13:18 by maeverqu          #+#    #+#              #
-#    Updated: 2026/06/25 18:42:58 by maeverqu         ###   ########.fr        #
+#    Updated: 2026/06/28 16:16:47 by jorossel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	= srcs/core/compute_disorder.c \
 		  srcs/utils/utils2.c \
 		  srcs/algo/bubble_sort.c \
 		  srcs/algo/chunk_sort.c \
+		  srcs/algo/radix_sort.c \
 		  srcs/operations/push.c \
 		  srcs/operations/reverse_rotate.c \
 		  srcs/operations/rotate.c \

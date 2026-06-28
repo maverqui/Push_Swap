@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/26 18:25:48 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/28 18:40:19 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,5 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
 //--------------------------------------------------------
 float	compute_disorder(t_list **lst_a);
-
-
+void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations);
 #endif

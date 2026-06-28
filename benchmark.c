@@ -1,4 +1,4 @@
-
+#include "push_swap.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -91,25 +91,34 @@ ft_putnbr_fd(total, 2);
 write(2, "\n", 1);
 write(2, "[bench]	sa:	", 12);
 ft_putnbr_fd(operations->sa, 2);
+write(2, "\t", 1);
 write(2, "[bench]	sb:	", 12);
 ft_putnbr_fd(operations->sb, 2);
+write(2, "\t", 1);
 write(2, "[bench]	ss:	", 12);
 ft_putnbr_fd(operations->ss, 2);
+write(2, "\t", 1);
 write(2, "[bench]	pa:	", 12);
 ft_putnbr_fd(operations->pa, 2);
+write(2, "\t", 1);
 write(2, "[bench]	pb:	", 12);
 ft_putnbr_fd(operations->pb, 2);
 write(2, "\n", 1);
 write(2, "[bench]	ra:	", 12);
 ft_putnbr_fd(operations->ra, 2);
+write(2, "\t", 1);
 write(2, "[bench]	rb:	", 12);
 ft_putnbr_fd(operations->rb, 2);
+write(2, "\t", 1);
 write(2, "[bench]	rr:	", 12);
 ft_putnbr_fd(operations->rr, 2);
+write(2, "\t", 1);
 write(2, "[bench]	rra:	", 13);
 ft_putnbr_fd(operations->rra, 2);
+write(2, "\t", 1);
 write(2, "[bench]	rrb:	", 13);
 ft_putnbr_fd(operations->rrb, 2);
+write(2, "\t", 1);
 write(2, "[bench]	rrr:	", 13);
 ft_putnbr_fd(operations->rrr, 2);
 write(2, "\n", 1);
@@ -128,3 +137,11 @@ write(2, "\n", 1);
 // ft_printf("	rrb:	%d	rrr:	%d\n", operations->rrb, operations->rrr);
 
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+check if flag is_valid
+check limits -2147486683
+
+option ordre des flags
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

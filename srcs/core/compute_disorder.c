@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:13:56 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/26 18:26:10 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/28 18:53:16 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static	int	get_value(t_list *a, int i){
+static	int	get_value(t_list *a, int i)
+{
 	while (i--)
 		a = a->next;
 	return (a->value);
@@ -50,7 +51,7 @@ void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations)
 	disorder = compute_disorder(lst_a);
 	if (disorder < 0.2)
 		ft_bubble_sort(lst_a, operations);
-	else if (disorder <= 0.2 && disorder < 0.5)
+	else if (disorder >= 0.2 && disorder < 0.5)
 		ft_chunk_sort(lst_a, operations);
 	else if (disorder >= 0.5)
 		ft_radix_sort(lst_a, lst_b, operations);

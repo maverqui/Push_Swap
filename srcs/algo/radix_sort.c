@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:14 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/26 18:27:06 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/28 17:31:15 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,3 +75,4 @@ void	ft_radix_sort(t_list **lst_a, t_list **lst_b, t_operations *operations)
 		i++;
 	}
 }
+
