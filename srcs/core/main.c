@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:59:55 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 20:48:45 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/29 21:40:44 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	lst_a = NULL;
 	lst_b = NULL;
+	strat_flag =STRAT_NONE;
 	operations = (t_operations){0};
 	operations.bench = 0;
 	init_stack(&lst_a, argc, argv);

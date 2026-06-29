@@ -6,7 +6,7 @@
 #    By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/25 12:13:18 by maeverqu          #+#    #+#              #
-#    Updated: 2026/06/28 16:16:47 by jorossel         ###   ########.fr        #
+#    Updated: 2026/06/29 21:42:14 by jorossel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ SRCS	= srcs/core/compute_disorder.c \
 		  srcs/operations/push.c \
 		  srcs/operations/reverse_rotate.c \
 		  srcs/operations/rotate.c \
-		  srcs/operations/swap.c
+		  srcs/operations/swap.c \
+		  srcs/benchmark/benchmark.c \
+		  srcs/benchmark/benchmark2.c \
 		 
 OBJS	= $(SRCS:.c=.o)
 
