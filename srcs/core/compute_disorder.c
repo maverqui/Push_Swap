@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:13:56 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 13:31:00 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/29 20:29:34 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,27 +57,19 @@ void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations)
 		ft_radix_sort(lst_a, lst_b, operations);
 	return ;
 }
-void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s)
+// a modifier
+void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *str)
 {
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == '-')
-		{
-			// if (ft_strcmp(s, "--bench") == 0)
-			// 	???????????
-			if (ft_strcmp(s, "--simple") == 0)
-				ft_bubble_sort(lst_a, operations);
-			if (ft_strcmp(s, "--medium") == 0)
-				ft_chunk_sort(lst_a, operations);
-			if (ft_strcmp(s, "--complex") == 0)
-				ft_radix_sort(lst_a, lst_b, operations);
-			if (ft_strcmp(s, "--adaptive") == 0)
-				adaptive_algo(lst_a, lst_b, operations);
-		}
-		i++;
-	}	
-	adaptive_algo(lst_a, lst_b, operations);
+	if (ft_strncmp(str, "--bench", 7) == 0)
+		operations->bench = 1;
+	if (ft_strncmp(str, "--simple", 8) == 0)
+		ft_bubble_sort(lst_a, operations);
+	else if (ft_strncmp(str, "--medium", 8) == 0)
+		ft_chunk_sort(lst_a, operations);
+	else if (ft_strncmp(str, "--complex", 9) == 0)
+		ft_radix_sort(lst_a, lst_b, operations);
+	else if (ft_strncmp(str, "--adaptive", 10) == 0)
+		adaptive_algo(lst_a, lst_b, operations);
+	else
+	 	return ;
 }

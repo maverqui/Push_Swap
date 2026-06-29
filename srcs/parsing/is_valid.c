@@ -6,7 +6,7 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:14:49 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/25 18:26:02 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/29 20:38:13 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	is_valid_arg(char *arg)
 	}
 	return (1);
 }
-// prep lst
+
 void	init_stack(t_list **lst_a, int argc, char **argv)
 {
     int   i;

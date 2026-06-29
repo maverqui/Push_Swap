@@ -6,13 +6,13 @@
 /*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:00:34 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/26 17:30:27 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/29 18:52:32 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 //block size by wave 
-static	void	chunk_dispatch(t_list **lst_a, t_list **lst_b, t_operations *operations)
+void	chunk_dispatch(t_list **lst_a, t_list **lst_b, t_operations *operations)
 {
 	int		chunk_size;
 	int		lst_size;
@@ -25,12 +25,12 @@ static	void	chunk_dispatch(t_list **lst_a, t_list **lst_b, t_operations *operati
 	else
 		chunk_size = 30;
 	max = chunk_size;
-	while(*lst_a)
+	while (*lst_a)
 	{
-		if((*lst_a)->index < max)
+		if ((*lst_a)->index < max)
 		{
 			pb(lst_a, lst_b, operations);
-			if((*lst_b)->index < (max - chunk_size / 2))
+			if ((*lst_b)->index < (max - chunk_size / 2))
 				rb(lst_b, operations);
 		}
 		else
@@ -40,12 +40,12 @@ static	void	chunk_dispatch(t_list **lst_a, t_list **lst_b, t_operations *operati
 	}
 }
 
-static	int find_max_index(t_list *lst_b)
+static	int	find_max_index(t_list *lst_b)
 {
-	int max;
+	int	max;
 
 	max = lst_b->index;
-	while(lst_b)
+	while (lst_b)
 	{
 		if (lst_b->index > max)
 			max = lst_b->index;
@@ -53,26 +53,27 @@ static	int find_max_index(t_list *lst_b)
 	}
 	return (max);
 }
+
 //search pos max
-static	int find_position(t_list *lst_b, int index)
+static	int	find_position(t_list *lst_b, int index)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
-	while(lst_b)
+	while (lst_b)
 	{
-		if(lst_b->index == index)
-			return(pos);
+		if (lst_b->index == index)
+			return (pos);
 		pos++;
 		lst_b = lst_b->next;
 	}
-	return(-1);
+	return (-1);
 }
 
-static	void	return_to_a(t_list **lst_a, t_list **lst_b, t_operations *operations)
+void	return_to_a(t_list **lst_a, t_list **lst_b, t_operations *operations)
 {
-	int max;
-	int pos;
+	int	max;
+	int	pos;
 
 	while (*lst_b)
 	{

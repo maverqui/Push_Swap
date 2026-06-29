@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 13:31:47 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/29 20:48:11 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+
+typedef enum e_strat
+{
+	STRAT_NONE = 0,
+	STRAT_SIMPLE,
+	STRAT_MEDIUM,
+	STRAT_COMPLEX,
+	STRAT_ADAPTIVE
+} t_strat;
 
 typedef struct s_list
 {
@@ -36,6 +45,7 @@ typedef struct s_operations
 	int	rra;
 	int	rrb;
 	int	rrr;
+	int	bench;
 } t_operations;
 
 //---OPERATIONS---
@@ -69,7 +79,7 @@ void	init_stack(t_list **lst_a, int argc, char **argv);
 
 //---UTILS---
 long	ft_atol(char *str);
-int	ft_strcmp(const char *s1, const char *s2);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 //---UTILS2---
 t_list	*ft_lstnew(int val);
@@ -80,6 +90,11 @@ void	ft_lstclear(t_list **lst);
 //--------------------------------------------------------
 float	compute_disorder(t_list **lst_a);
 void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations);
-void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s);
+void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *str);
+
+//---BENCHMARK---
+void	benchmark(t_operations *operations, t_strat strat_flag, t_list **lst_a);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putfloat_fd(float n, int fd);
 
 #endif

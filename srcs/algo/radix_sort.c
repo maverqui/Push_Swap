@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:14 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/28 17:31:15 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/29 18:53:28 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 //pos index size
 void	ft_index(t_list **lst)
 {
-	t_list *actual;
-	t_list *to_compare;
+	t_list	*actual;
+	t_list	*to_compare;
 
 	actual = *lst;
-	while(actual)
+	while (actual)
 	{
 		actual->index = 0;
 		to_compare = *lst;
-		while(to_compare)
+		while (to_compare)
 		{
 			if (actual->value > to_compare->value)
 				actual->index++;
@@ -37,7 +37,7 @@ int	find_max_bits(int n)
 {
 	int	power;
 	int	res;
-	
+
 	power = 0;
 	res = 1;
 	while (res <= n)
@@ -59,7 +59,7 @@ void	ft_radix_sort(t_list **lst_a, t_list **lst_b, t_operations *operations)
 	size = ft_lstsize(*lst_a);
 	max_bits = find_max_bits(size - 1);
 	i = 0;
-	while (i < max_bits)	
+	while (i < max_bits)
 	{
 		j = 0;
 		while (j < size)
@@ -75,4 +75,3 @@ void	ft_radix_sort(t_list **lst_a, t_list **lst_b, t_operations *operations)
 		i++;
 	}
 }
-

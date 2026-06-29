@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:59:55 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 13:31:15 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/29 20:48:45 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,22 @@ int main(int argc, char **argv)
 	t_list			*lst_a;
 	t_list			*lst_b;
 	t_operations	operations;
+	t_strat strat_flag;
 
+	
+
+	if (argc < 2)
+		return (EXIT_FAILURE);
 	lst_a = NULL;
 	lst_b = NULL;
 	operations = (t_operations){0};
-	if (argc < 2)
-		return (EXIT_FAILURE);
+	operations.bench = 0;
 	init_stack(&lst_a, argc, argv);
-	check_flags(&lst_a, &lst_b, &operations, argv[1]);
-	//ft_bubble_sort(&lst_a, &operations);
-	//ft_chunk_sort(&lst_a, &operations);
-	//ft_radix_sort(&lst_a, &lst_b, &operations);
-	while(lst_a)
-		lst_a = lst_a->next;
-	write(STDOUT_FILENO, "caca\n", 5);
+	adaptive_algo(&lst_a, &lst_b, &operations);
+	//check_flags(lst_a, lst_b, operations, argv);
+	ft_lstclear(&lst_a);
+	ft_lstclear(&lst_b);
+	if (operations.bench == 1)
+		benchmark(&operations, strat_flag, &lst_a);
 	return (EXIT_SUCCESS);
 }
