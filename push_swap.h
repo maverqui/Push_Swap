@@ -6,7 +6,7 @@
 /*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/28 20:33:10 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/29 13:31:47 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void	ft_lstclear(t_list **lst);
 //--------------------------------------------------------
 float	compute_disorder(t_list **lst_a);
 void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations);
-void	force_algo(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s);
+void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s);
 
 #endif

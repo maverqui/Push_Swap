@@ -6,7 +6,7 @@
 /*   By: jorossel <jorossel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:13:56 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/28 20:39:06 by jorossel         ###   ########.fr       */
+/*   Updated: 2026/06/29 13:31:00 by jorossel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations)
 		ft_radix_sort(lst_a, lst_b, operations);
 	return ;
 }
-void	force_algo(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s)
+void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *s)
 {
 	int i;
 
@@ -66,7 +66,7 @@ void	force_algo(t_list **lst_a, t_list **lst_b, t_operations *operations, char *
 	{
 		if (s[i] == '-')
 		{
-			// if (strcmp(s, "--bench") == 0)
+			// if (ft_strcmp(s, "--bench") == 0)
 			// 	???????????
 			if (ft_strcmp(s, "--simple") == 0)
 				ft_bubble_sort(lst_a, operations);

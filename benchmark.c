@@ -27,6 +27,30 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
+void	ft_putfloat_fd(float n, int fd)
+{
+	int	entier;
+	int	decimal;
+
+	entier = n;
+	decimal = (n - entier) * 100 + 0.5;
+	if (n == 100.00)
+		write(fd, "100.00", 6);
+	else
+	{
+		entier =  (n / 10) + '0';
+		write(fd, &entier, 1);
+		entier = n;
+		entier =  (entier % 10) + '0';
+		write(fd, &entier, 1);
+		write(fd, ".", 1);
+		//"entier" devient un simple temp, pour eviter de recreer une variable
+		entier =  (decimal / 10) + '0';
+		write(fd, &entier, 1);
+		decimal =  (decimal % 10) + '0';
+		write(fd, &decimal, 1);
+	}
+}
 
 
 void	b_strategy(char *str)
@@ -54,9 +78,6 @@ void	b_strategy(char *str)
 }
 
 
-
-
-
 void	benchmark(t_operations *operations, /*int bench_flag, char *strat_flag, float disorder*/)
 {
 int total;
@@ -65,9 +86,8 @@ total = operations->sa + operations->sb + operations->ss + operations->pa
 + operations->pb + operations->ra + operations->rb + operations->rr +
 operations->rra + operations->rrb + operations->rrr;
 
-
 write(2, "[bench] disorder:	", 18);
-//use fonction to print float
+ft_putfloat_fd(compute_disorder(lst_a), 2);
 write(2, "%\n", 2);
 write(2, "[bench] strategy:	", 18);
 b_strategy(strat_flag);
@@ -125,7 +145,7 @@ write(2, "\n", 1);
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 check if flag is_valid
-check limits -2147486683
+check limits -2147683648
 
 option ordre des flags
 
