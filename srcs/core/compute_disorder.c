@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:13:56 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 20:29:34 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:20:46 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,27 @@ float	compute_disorder(t_list **lst_a)
 	return ((float)mistakes / (float)total_pairs);
 }
 
-void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations)
+void	adaptive_algo(t_data *data)
 {
-	float	disorder;
-
-	disorder = compute_disorder(lst_a);
-	if (disorder < 0.2)
-		ft_bubble_sort(lst_a, operations);
-	else if (disorder >= 0.2 && disorder < 0.5)
-		ft_chunk_sort(lst_a, operations);
-	else if (disorder >= 0.5)
-		ft_radix_sort(lst_a, lst_b, operations);
+	if (data->disorder < 0.2)
+		ft_bubble_sort(data);
+	else if (data->disorder >= 0.2 && data->disorder < 0.5)
+		ft_chunk_sort(data);
+	else if (data->disorder >= 0.5)
+		ft_radix_sort(data);
 	return ;
 }
-// a modifier
-void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *str)
+
+void	strat_sort(t_data *data)
 {
-	if (ft_strncmp(str, "--bench", 7) == 0)
-		operations->bench = 1;
-	if (ft_strncmp(str, "--simple", 8) == 0)
-		ft_bubble_sort(lst_a, operations);
-	else if (ft_strncmp(str, "--medium", 8) == 0)
-		ft_chunk_sort(lst_a, operations);
-	else if (ft_strncmp(str, "--complex", 9) == 0)
-		ft_radix_sort(lst_a, lst_b, operations);
-	else if (ft_strncmp(str, "--adaptive", 10) == 0)
-		adaptive_algo(lst_a, lst_b, operations);
+	if (data->strat == STRAT_SIMPLE)
+		ft_bubble_sort(data);
+	else if (data->strat == STRAT_MEDIUM)
+		ft_chunk_sort(data);
+	else if (data->strat == STRAT_COMPLEX)
+		ft_radix_sort(data);
+	else if (data->strat == STRAT_ADAPTIVE)
+		adaptive_algo(data);
 	else
-	 	return ;
+		return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:14 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 18:53:28 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/30 14:53:43 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_index(t_list **lst)
 	}
 }
 
-int	find_max_bits(int n)
+static int	find_max_bits(int n)
 {
 	int	power;
 	int	res;
@@ -48,15 +48,15 @@ int	find_max_bits(int n)
 	return (power);
 }
 
-void	ft_radix_sort(t_list **lst_a, t_list **lst_b, t_operations *operations)
+void	ft_radix_sort(t_data *data)
 {
 	int		i;
 	int		j;
 	int		max_bits;
 	int		size;
 
-	ft_index(lst_a);
-	size = ft_lstsize(*lst_a);
+	ft_index(&data->lst_a);
+	size = ft_lstsize(data->lst_a);
 	max_bits = find_max_bits(size - 1);
 	i = 0;
 	while (i < max_bits)
@@ -64,14 +64,14 @@ void	ft_radix_sort(t_list **lst_a, t_list **lst_b, t_operations *operations)
 		j = 0;
 		while (j < size)
 		{
-			if ((((*lst_a)->index >> i) & 1) == 0)
-				pb(lst_a, lst_b, operations);
+			if ((((data->lst_a)->index >> i) & 1) == 0)
+				pb(&data->lst_a, &data->lst_b, &data->operations);
 			else
-				ra(lst_a, operations);
+				ra(&data->lst_a, &data->operations);
 			j++;
 		}
-		while (*lst_b)
-			pa(lst_a, lst_b, operations);
+		while (data->lst_b)
+			pa(&data->lst_a, &data->lst_b, &data->operations);
 		i++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 13:31:50 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 18:50:02 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/30 14:53:37 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,25 @@ int	check_if_sort(t_list *lst)
 	return (1);
 }
 
-void	ft_bubble_sort(t_list **lst_a, t_operations *operations)
+void	ft_bubble_sort(t_data *data)
+// void	ft_bubble_sort(t_list **lst_a, t_operations *operations)
 {
 	int		size;
 	int		i;
 
-	if (!lst_a || !(*lst_a))
+	if (!data || !(data->lst_a))
 		return ;
-	size = ft_lstsize(*lst_a);
-	while (!(check_if_sort(*lst_a)))
+	size = ft_lstsize(data->lst_a);
+	while (!(check_if_sort(data->lst_a)))
 	{
 		i = 0;
 		while (i < size - 1)
 		{
-			if ((*lst_a)->value > (*lst_a)->next->value)
-				sa(lst_a, operations);
-			ra(lst_a, operations);
+			if ((data->lst_a)->value > (data->lst_a)->next->value)
+				sa(&data->lst_a, &data->operations);
+			ra(&data->lst_a, &data->operations);
 			i++;
 		}
-		ra(lst_a, operations);
+		ra(&data->lst_a, &data->operations);
 	}
 }

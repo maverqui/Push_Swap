@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:00:34 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 18:52:32 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/30 16:45:13 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 //block size by wave 
-void	chunk_dispatch(t_list **lst_a, t_list **lst_b, t_operations *operations)
+static	void	chunk_dispatch(t_data *data)
 {
 	int		chunk_size;
 	int		lst_size;
 	int		max;
 
 	chunk_size = 0;
-	lst_size = ft_lstsize(*lst_a);
+	lst_size = ft_lstsize(data->lst_a);
 	if (lst_size <= 200)
 		chunk_size = 15;
 	else
 		chunk_size = 30;
 	max = chunk_size;
-	while (*lst_a)
+	while (data->lst_a)
 	{
-		if ((*lst_a)->index < max)
+		if ((data->lst_a)->index < max)
 		{
-			pb(lst_a, lst_b, operations);
-			if ((*lst_b)->index < (max - chunk_size / 2))
-				rb(lst_b, operations);
+			pb(&data->lst_a, &data->lst_b, &data->operations);
+			if ((data->lst_b)->index < (max - chunk_size / 2))
+				rb(&data->lst_b, &data->operations);
 		}
 		else
-			ra(lst_a, operations);
-		if (ft_lstsize(*lst_b) >= max)
+			ra(&data->lst_a, &data->operations);
+		if (ft_lstsize(data->lst_b) >= max)
 			max += chunk_size;
 	}
 }
@@ -70,35 +70,32 @@ static	int	find_position(t_list *lst_b, int index)
 	return (-1);
 }
 
-void	return_to_a(t_list **lst_a, t_list **lst_b, t_operations *operations)
+static void	return_to_a(t_data *data)
 {
 	int	max;
 	int	pos;
 
-	while (*lst_b)
+	while (data->lst_b)
 	{
-		max = find_max_index(*lst_b);
-		pos = find_position(*lst_b, max);
-		if (pos <= ft_lstsize(*lst_b) / 2)
+		max = find_max_index(data->lst_b);
+		pos = find_position(data->lst_b, max);
+		if (pos <= ft_lstsize(data->lst_b) / 2)
 		{
-			while ((*lst_b)->index != max)
-				rb(lst_b, operations);
+			while ((data->lst_b)->index != max)
+				rb(&data->lst_b, &data->operations);
 		}
 		else
 		{
-			while ((*lst_b)->index != max)
-				rrb(lst_b, operations);
+			while ((data->lst_b)->index != max)
+				rrb(&data->lst_b, &data->operations);
 		}
-		pa (lst_a, lst_b, operations);
+		pa (&data->lst_a, &data->lst_b, &data->operations);
 	}
 }
 
-void	ft_chunk_sort(t_list **lst_a, t_operations *operations)
+void	ft_chunk_sort(t_data *data)
 {
-	t_list	*lst_b;
-
-	lst_b = NULL;
-	ft_index(lst_a);
-	chunk_dispatch(lst_a, &lst_b, operations);
-	return_to_a(lst_a, &lst_b, operations);
+	ft_index(&data->lst_a);
+	chunk_dispatch(data);
+	return_to_a(data);
 }

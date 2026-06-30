@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:09:18 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 20:48:11 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:20:46 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@
 
 typedef enum e_strat
 {
-	STRAT_NONE = 0,
+	STRAT_ADAPTIVE = 0,
 	STRAT_SIMPLE,
 	STRAT_MEDIUM,
 	STRAT_COMPLEX,
-	STRAT_ADAPTIVE
 } t_strat;
 
 typedef struct s_list
@@ -48,6 +47,15 @@ typedef struct s_operations
 	int	bench;
 } t_operations;
 
+typedef struct s_data
+{
+	t_operations operations;
+	t_list *lst_a;
+	t_list *lst_b;
+	t_strat strat;
+	float disorder;
+} t_data;
+
 //---OPERATIONS---
 void	sa(t_list **lst_a, t_operations *operations);
 void	sb(t_list **lst_b, t_operations *operations);
@@ -65,21 +73,22 @@ void	rrb(t_list **lst_b, t_operations *operations);
 void	rrr(t_list **lst_a, t_list **lst_b, t_operations *operations);
 
 //---ALGO---
-void	ft_bubble_sort(t_list **lst_a, t_operations *operations);
+void	ft_bubble_sort(t_data *data);
 //---------------------------------------------------------
-void	ft_chunk_sort(t_list **lst_a, t_operations *operations);
+void	ft_chunk_sort(t_data *data);
 //---------------------------------------------------------
-void	ft_radix_sort(t_list **lst_a, t_list **lst_b, t_operations *operations);
+void	ft_radix_sort(t_data *data);
 void	ft_index(t_list **lst);
 
 //---PARSING---
 int		is_valid_arg(char *arg);
 void	clean_exit(t_list **lst_a);
-void	init_stack(t_list **lst_a, int argc, char **argv);
+void	init_stack(t_list **lst_a, char **argv);
 
 //---UTILS---
 long	ft_atol(char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_strcmp(const char *s1, const char *s2);
 
 //---UTILS2---
 t_list	*ft_lstnew(int val);
@@ -89,11 +98,11 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
 //--------------------------------------------------------
 float	compute_disorder(t_list **lst_a);
-void	adaptive_algo(t_list **lst_a, t_list **lst_b, t_operations *operations);
-void	check_flags(t_list **lst_a, t_list **lst_b, t_operations *operations, char *str);
+void	adaptive_algo(t_data *data);
+void	strat_sort(t_data *data);
 
 //---BENCHMARK---
-void	benchmark(t_operations *operations, t_strat strat_flag, t_list **lst_a);
+void	benchmark(t_data *data);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putfloat_fd(float n, int fd);
 

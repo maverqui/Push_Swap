@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maeverqu <maeverqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maeverqu <mae.verquin@learner.42.tech>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 13:14:49 by maeverqu          #+#    #+#             */
-/*   Updated: 2026/06/29 20:38:13 by maeverqu         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:00:25 by maeverqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,17 @@ int	is_valid_arg(char *arg)
 	}
 	return (1);
 }
+#include <stdio.h>
 
-void	init_stack(t_list **lst_a, int argc, char **argv)
+// ./push_swap --bench --adaptive --simple --medium --complex
+void	init_stack(t_list **lst_a, char **argv)
 {
     int   i;
     long  value;
     t_list *new_node;
 
-    i = 1;
-    while (i < argc)
+    i = 0;
+    while (argv[i])
     {
         if (!is_valid_arg(argv[i]))
             clean_exit(lst_a);
